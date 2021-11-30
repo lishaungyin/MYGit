@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>1</key>
+	<string>fnyc_100dragons</string>
+	<key>1001</key>
+	<string>fnyc_33golds</string>
+	<key>1002</key>
+	<string>fnyc_170golds</string>
+	<key>1003</key>
+	<string>fnyc_330golds</string>
+	<key>1004</key>
+	<string>fnyc_490golds</string>
+	<key>1006</key>
+	<string>fnyc_990golds</string>
+	<key>1007</key>
+	<string>fnyc_1690golds</string>
+	<key>1008</key>
+	<string>fnyc_3290golds</string>
+	<key>2001</key>
+	<string>fnyc_130gift</string>
+	<key>2002</key>
+	<string>fnyc_270gift</string>
+	<key>2003</key>
+	<string>fnyc_490gift</string>
+</dict>
+</plist>
