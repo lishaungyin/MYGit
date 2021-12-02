@@ -6,6 +6,7 @@
 //
 
 #import "AppDelegate.h"
+#import "ViewController.h"
 #import <GoogleSignIn/GoogleSignIn.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 
@@ -20,6 +21,12 @@
     // Override point for customization after application launch.
     [[FBSDKApplicationDelegate sharedInstance] application:application
                                didFinishLaunchingWithOptions:launchOptions];
+    
+    self.window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+    ViewController *vc = [[ViewController alloc] init];
+    self.window.rootViewController = vc;
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

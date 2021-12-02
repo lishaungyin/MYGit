@@ -32,14 +32,18 @@
     NSURL *url = [NSURL URLWithString:urlStr];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = @"POST";
-    NSString *keyValueFormat;
+    __block NSString *keyValueFormat;
     NSMutableString *result = [NSMutableString new];
-    NSEnumerator *keyEnum = [parameter keyEnumerator];
-    id key;
-    while (key = [keyEnum nextObject]) {
-        keyValueFormat = [NSString stringWithFormat:@"%@=%@&", key, [parameter valueForKey:key]];
-        [result appendString:keyValueFormat];
-    }
+    NSArray *keyArr = [parameter allKeys];
+    [keyArr enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (idx == keyArr.count - 1) {
+            keyValueFormat = [NSString stringWithFormat:@"%@=%@", obj, [parameter valueForKey:obj]];
+            [result appendString:keyValueFormat];
+        } else {
+            keyValueFormat = [NSString stringWithFormat:@"%@=%@&", obj, [parameter valueForKey:obj]];
+            [result appendString:keyValueFormat];
+        }
+    }];
     request.HTTPBody = [result dataUsingEncoding:NSUTF8StringEncoding];
     NSURLSession *session = [NSURLSession sharedSession];
     NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
